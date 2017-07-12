@@ -5,12 +5,8 @@
   <artifactId>jianhai-liquibase</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>zlb</module>
-        <module>jianhai</module>
-      <module>llll</module>
-    </modules>
-    <name>jianhai-liquibase Maven Webapp</name>
+
+  <name>jianhai-liquibase Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
@@ -73,7 +69,55 @@
     </dependency>
   </dependencies>
 
-  <build>
+  <!--<build>
     <finalName>jianhai-liquibase</finalName>
+  </build>-->
+  <build>
+    <plugins>
+      <!--支持java1.7-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <!-- 生成javadoc文档包的插件 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.2</version>
+        <configuration>
+          <aggregate>true</aggregate>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- 生成sources源码包的插件 -->
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <attach>true</attach>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
