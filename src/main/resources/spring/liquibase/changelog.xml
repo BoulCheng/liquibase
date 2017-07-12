@@ -1,0 +1,12 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <!-- 修改字段类型 --><!-- 修改字段类型 -->
+    <changeSet id="10001" author="zlb">
+        <modifyDataType tableName="t_dict_hug_device" columnName="thumbnail"
+                        newDataType="varchar(32)" />
+    </changeSet>
+</databaseChangeLog>
